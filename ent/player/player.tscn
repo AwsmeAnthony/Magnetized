@@ -1,0 +1,30 @@
+[gd_scene load_steps=4 format=3 uid="uid://qss2uwoa25ld"]
+
+[ext_resource type="Texture2D" uid="uid://co51lwykr3edo" path="res://ent/player/player.png" id="1_fy8at"]
+[ext_resource type="Script" path="res://ent/player/player.gd" id="1_p6rcs"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_chue3"]
+radius = 7.0
+
+[node name="player" type="CharacterBody2D"]
+script = ExtResource("1_p6rcs")
+
+[node name="neck" type="Node2D" parent="."]
+
+[node name="Sprite2D" type="Sprite2D" parent="neck"]
+rotation = 1.5708
+texture = ExtResource("1_fy8at")
+
+[node name="emit partic" type="CPUParticles2D" parent="neck"]
+emitting = false
+amount = 64
+lifetime = 0.2
+one_shot = true
+explosiveness = 1.0
+spread = 180.0
+gravity = Vector2(0, 0)
+initial_velocity_min = 80.0
+initial_velocity_max = 80.0
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("CircleShape2D_chue3")
