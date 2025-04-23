@@ -21,10 +21,19 @@ amount = 64
 lifetime = 0.2
 one_shot = true
 explosiveness = 1.0
+local_coords = true
 spread = 180.0
 gravity = Vector2(0, 0)
 initial_velocity_min = 80.0
 initial_velocity_max = 80.0
+
+[node name="neg" type="RayCast2D" parent="neck"]
+position = Vector2(5, 5)
+target_position = Vector2(1, 0)
+
+[node name="pos" type="RayCast2D" parent="neck"]
+position = Vector2(5, -5)
+target_position = Vector2(1, 0)
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 shape = SubResource("CircleShape2D_chue3")

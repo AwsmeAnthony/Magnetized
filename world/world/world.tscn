@@ -1,10 +1,46 @@
-[gd_scene load_steps=2 format=3 uid="uid://1gahyqn21ur6"]
+[gd_scene load_steps=6 format=3 uid="uid://1gahyqn21ur6"]
 
 [ext_resource type="PackedScene" uid="uid://qss2uwoa25ld" path="res://ent/player/player.tscn" id="1_mnyjo"]
+[ext_resource type="Script" path="res://addons/phantom_camera/scripts/phantom_camera_host/phantom_camera_host.gd" id="2_kyfgl"]
+[ext_resource type="Script" path="res://addons/phantom_camera/scripts/phantom_camera/phantom_camera_2d.gd" id="3_55uyr"]
+[ext_resource type="Script" path="res://addons/phantom_camera/scripts/resources/tween_resource.gd" id="4_ynxba"]
+
+[sub_resource type="Resource" id="Resource_o0xf5"]
+script = ExtResource("4_ynxba")
+duration = 1.0
+transition = 0
+ease = 2
 
 [node name="world" type="Node2D"]
 
 [node name="player" parent="." instance=ExtResource("1_mnyjo")]
+position = Vector2(-1, 0)
 
 [node name="Camera2D" type="Camera2D" parent="."]
-zoom = Vector2(5.555, 5.555)
+physics_interpolation_mode = 1
+position = Vector2(-1, -1.4013e-45)
+zoom = Vector2(5, 5)
+
+[node name="PhantomCameraHost" type="Node" parent="Camera2D"]
+process_priority = 300
+process_physics_priority = 300
+script = ExtResource("2_kyfgl")
+
+[node name="PhantomCamera2D" type="Node2D" parent="." node_paths=PackedStringArray("follow_target")]
+top_level = true
+position = Vector2(-1, 0)
+script = ExtResource("3_55uyr")
+follow_mode = 5
+follow_target = NodePath("../player")
+zoom = Vector2(5, 5)
+tween_resource = SubResource("Resource_o0xf5")
+follow_damping = true
+
+[node name="Polygon2D" type="Polygon2D" parent="."]
+color = Color(0, 0, 0, 1)
+polygon = PackedVector2Array(-115, -64, 20, -104, 168, -60, 168, 74, 47, 127, -148, 112, -115, -65, -231, -71, -299, 193, 250, 193, 325, -103, -161, -263, -231, -77)
+
+[node name="StaticBody2D" type="StaticBody2D" parent="Polygon2D"]
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="Polygon2D/StaticBody2D"]
+polygon = PackedVector2Array(-115, -64, 20, -104, 168, -60, 168, 74, 47, 127, -148, 112, -115, -65, -231, -71, -299, 193, 250, 193, 325, -103, -161, -263, -231, -77)
