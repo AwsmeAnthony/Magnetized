@@ -625,6 +625,8 @@ func _process(delta: float) -> void:
 
 
 func _physics_process(delta: float) -> void:
+	zoom.y = zoom.x
+	
 	if not _follow_target_physics_based or _is_active: return
 	process_logic(delta)
 

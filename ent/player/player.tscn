@@ -3,8 +3,8 @@
 [ext_resource type="Texture2D" uid="uid://co51lwykr3edo" path="res://ent/player/player.png" id="1_fy8at"]
 [ext_resource type="Script" path="res://ent/player/player.gd" id="1_p6rcs"]
 
-[sub_resource type="CircleShape2D" id="CircleShape2D_chue3"]
-radius = 7.0
+[sub_resource type="CircleShape2D" id="CircleShape2D_h5g12"]
+radius = 6.00521
 
 [node name="player" type="CharacterBody2D"]
 script = ExtResource("1_p6rcs")
@@ -28,12 +28,17 @@ initial_velocity_min = 80.0
 initial_velocity_max = 80.0
 
 [node name="neg" type="RayCast2D" parent="neck"]
-position = Vector2(5, 5)
-target_position = Vector2(1, 0)
+position = Vector2(3, 5)
+target_position = Vector2(3.705, 0)
+collision_mask = 2
+hit_from_inside = true
 
 [node name="pos" type="RayCast2D" parent="neck"]
-position = Vector2(5, -5)
-target_position = Vector2(1, 0)
+position = Vector2(3, -5)
+target_position = Vector2(3.705, 0)
+collision_mask = 2
+hit_from_inside = true
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-shape = SubResource("CircleShape2D_chue3")
+position = Vector2(0, -0.25)
+shape = SubResource("CircleShape2D_h5g12")

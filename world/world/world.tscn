@@ -18,8 +18,8 @@ position = Vector2(-1, 0)
 
 [node name="Camera2D" type="Camera2D" parent="."]
 physics_interpolation_mode = 1
-position = Vector2(-1, -1.4013e-45)
-zoom = Vector2(5, 5)
+position = Vector2(-1, 0)
+zoom = Vector2(4.22, 4.22)
 
 [node name="PhantomCameraHost" type="Node" parent="Camera2D"]
 process_priority = 300
@@ -32,7 +32,7 @@ position = Vector2(-1, 0)
 script = ExtResource("3_55uyr")
 follow_mode = 5
 follow_target = NodePath("../player")
-zoom = Vector2(5, 5)
+zoom = Vector2(4.22, 4.22)
 tween_resource = SubResource("Resource_o0xf5")
 follow_damping = true
 
@@ -41,6 +41,8 @@ color = Color(0, 0, 0, 1)
 polygon = PackedVector2Array(-115, -64, 20, -104, 168, -60, 168, 74, 47, 127, -148, 112, -115, -65, -231, -71, -299, 193, 250, 193, 325, -103, -161, -263, -231, -77)
 
 [node name="StaticBody2D" type="StaticBody2D" parent="Polygon2D"]
+collision_layer = 3
+collision_mask = 3
 
 [node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="Polygon2D/StaticBody2D"]
 polygon = PackedVector2Array(-115, -64, 20, -104, 168, -60, 168, 74, 47, 127, -148, 112, -115, -65, -231, -71, -299, 193, 250, 193, 325, -103, -161, -263, -231, -77)
