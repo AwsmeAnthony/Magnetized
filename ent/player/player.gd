@@ -1,5 +1,5 @@
 extends CharacterBody2D
-class_name Player
+
 
 @onready var sprite: Sprite2D = $neck/Sprite2D
 @onready var neck: Node2D = $neck
@@ -14,12 +14,9 @@ class_name Player
 
 var offset : Vector2 = Vector2(0,0)
 var dying : bool = false
-var movement_disabled : bool = false
+
 
 func _physics_process(delta: float) -> void:
-	if movement_disabled:
-		return
-	
 	_die()
 	if dying:
 		return
