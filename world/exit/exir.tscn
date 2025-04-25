@@ -1,4 +1,8 @@
-[gd_scene load_steps=5 format=3 uid="uid://bi0gvxamp6cq5"]
+[gd_scene load_steps=13 format=3 uid="uid://bi0gvxamp6cq5"]
+
+[ext_resource type="Script" path="res://world/exit/exir.gd" id="1_pbb6r"]
+[ext_resource type="PackedScene" uid="uid://e8mhnvxu34ll" path="res://ui/new_level/next_level.tscn" id="2_ekake"]
+[ext_resource type="PackedScene" uid="uid://1gahyqn21ur6" path="res://world/world/world.tscn" id="2_hjp7w"]
 
 [sub_resource type="Gradient" id="Gradient_p81lc"]
 offsets = PackedFloat32Array(1)
@@ -14,7 +18,29 @@ size = Vector2(117, 130)
 _data = [Vector2(0, 0), 0.0, 0.0, 0, 0, Vector2(1, 1), 0.0, 0.0, 0, 0]
 point_count = 2
 
+[sub_resource type="Animation" id="Animation_lc7mu"]
+resource_name = "rotate"
+
+[sub_resource type="Animation" id="Animation_fsg46"]
+length = 0.001
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_20jy0"]
+_data = {
+"RESET": SubResource("Animation_fsg46"),
+"rotate": SubResource("Animation_lc7mu")
+}
+
+[sub_resource type="Gradient" id="Gradient_5bmvr"]
+offsets = PackedFloat32Array(0, 0.416667)
+colors = PackedColorArray(0.223529, 0.454902, 1, 1, 0.156863, 1, 0.752941, 1)
+
+[sub_resource type="Gradient" id="Gradient_302r0"]
+offsets = PackedFloat32Array(0, 0.364583)
+colors = PackedColorArray(0.968627, 0, 0, 1, 0.156863, 1, 0.752941, 1)
+
 [node name="exit" type="Area2D"]
+script = ExtResource("1_pbb6r")
+next_level = ExtResource("2_hjp7w")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
 position = Vector2(-36.5, -1.5)
@@ -29,6 +55,7 @@ shape = SubResource("RectangleShape2D_kwkc4")
 [node name="CPUParticles2D" type="CPUParticles2D" parent="."]
 position = Vector2(40, 0)
 amount = 128
+local_coords = true
 emission_shape = 3
 emission_rect_extents = Vector2(14.325, 67.41)
 gravity = Vector2(-70, 0)
@@ -40,3 +67,61 @@ scale_amount_min = 0.0
 scale_amount_max = 5.0
 scale_amount_curve = SubResource("Curve_vtecb")
 color = Color(0.156863, 1, 0.752941, 1)
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+libraries = {
+"": SubResource("AnimationLibrary_20jy0")
+}
+
+[node name="blu" type="CPUParticles2D" parent="."]
+position = Vector2(63, -5)
+rotation = -0.129455
+emitting = false
+lifetime = 2.0
+one_shot = true
+explosiveness = 1.0
+local_coords = true
+direction = Vector2(-1, 0)
+spread = 32.5
+gravity = Vector2(0, 0)
+initial_velocity_min = 60.0
+initial_velocity_max = 60.0
+angular_velocity_max = 430.0
+radial_accel_min = -25.0
+radial_accel_max = -25.0
+angle_min = -62.0
+angle_max = 720.0
+scale_amount_min = 3.0
+scale_amount_max = 3.0
+color_ramp = SubResource("Gradient_5bmvr")
+
+[node name="red" type="CPUParticles2D" parent="."]
+position = Vector2(64, 6)
+rotation = 0.089273
+emitting = false
+lifetime = 2.0
+one_shot = true
+explosiveness = 1.0
+local_coords = true
+direction = Vector2(-1, 0)
+spread = 32.5
+gravity = Vector2(0, 0)
+initial_velocity_min = 60.0
+initial_velocity_max = 60.0
+angular_velocity_max = 430.0
+radial_accel_min = -25.0
+radial_accel_max = -25.0
+angle_min = -62.0
+angle_max = 720.0
+scale_amount_min = 3.0
+scale_amount_max = 3.0
+color_ramp = SubResource("Gradient_302r0")
+
+[node name="Marker2D" type="Marker2D" parent="."]
+position = Vector2(63, -1)
+rotation = 3.14159
+
+[node name="Next level" parent="." instance=ExtResource("2_ekake")]
+visible = false
+
+[connection signal="body_entered" from="." to="." method="_on_body_entered"]
