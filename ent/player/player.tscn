@@ -1,7 +1,13 @@
-[gd_scene load_steps=4 format=3 uid="uid://qss2uwoa25ld"]
+[gd_scene load_steps=6 format=3 uid="uid://qss2uwoa25ld"]
 
 [ext_resource type="Texture2D" uid="uid://co51lwykr3edo" path="res://ent/player/player.png" id="1_fy8at"]
 [ext_resource type="Script" path="res://ent/player/player.gd" id="1_p6rcs"]
+
+[sub_resource type="Gradient" id="Gradient_6bpgd"]
+colors = PackedColorArray(1, 1, 1, 1, 1, 1, 1, 0)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_y3uy4"]
+size = Vector2(2.79, 7.075)
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_h5g12"]
 radius = 6.00521
@@ -10,10 +16,55 @@ radius = 6.00521
 script = ExtResource("1_p6rcs")
 
 [node name="neck" type="Node2D" parent="."]
+rotation = 4.71239
+
+[node name="pointer" type="Line2D" parent="neck"]
+visible = false
+points = PackedVector2Array(5, -5, 95, 0, 4, 5)
+width = 2.335
+default_color = Color(1, 1, 0.34902, 0.572549)
 
 [node name="Sprite2D" type="Sprite2D" parent="neck"]
 rotation = 1.5708
 texture = ExtResource("1_fy8at")
+
+[node name="blu" type="CPUParticles2D" parent="neck"]
+position = Vector2(4.76995e-08, 4)
+rotation = 1.5708
+emitting = false
+amount = 16
+one_shot = true
+explosiveness = 1.0
+local_coords = true
+spread = 180.0
+gravity = Vector2(0, 0)
+initial_velocity_min = 10.0
+initial_velocity_max = 10.0
+angular_velocity_min = -180.0
+angular_velocity_max = 180.0
+scale_amount_min = 0.0
+scale_amount_max = 4.0
+color = Color(0.223529, 0.454902, 1, 1)
+color_ramp = SubResource("Gradient_6bpgd")
+
+[node name="red" type="CPUParticles2D" parent="neck"]
+position = Vector2(-4.76995e-08, -4)
+rotation = 1.5708
+emitting = false
+amount = 16
+one_shot = true
+explosiveness = 1.0
+local_coords = true
+spread = 180.0
+gravity = Vector2(0, 0)
+initial_velocity_min = 10.0
+initial_velocity_max = 10.0
+angular_velocity_min = -180.0
+angular_velocity_max = 180.0
+scale_amount_min = 0.0
+scale_amount_max = 4.0
+color = Color(0.968587, 5.67943e-06, 7.70092e-07, 1)
+color_ramp = SubResource("Gradient_6bpgd")
 
 [node name="emit partic" type="CPUParticles2D" parent="neck"]
 emitting = false
@@ -28,17 +79,45 @@ initial_velocity_min = 80.0
 initial_velocity_max = 80.0
 
 [node name="neg" type="RayCast2D" parent="neck"]
+visible = false
 position = Vector2(3, 5)
-target_position = Vector2(3.705, 0)
+target_position = Vector2(4, 2)
 collision_mask = 2
 hit_from_inside = true
 
 [node name="pos" type="RayCast2D" parent="neck"]
+visible = false
 position = Vector2(3, -5)
-target_position = Vector2(3.705, 0)
+target_position = Vector2(4, -2)
 collision_mask = 2
 hit_from_inside = true
 
+[node name="is on wall" type="ShapeCast2D" parent="neck"]
+visible = false
+shape = SubResource("RectangleShape2D_y3uy4")
+target_position = Vector2(94, 0)
+collision_mask = 2
+
+[node name="fly partics" type="CPUParticles2D" parent="neck"]
+visible = false
+z_index = -1
+position = Vector2(76, -7.15256e-07)
+lifetime = 0.8
+local_coords = true
+emission_shape = 3
+emission_rect_extents = Vector2(1, 15.14)
+gravity = Vector2(-268.41, 0)
+radial_accel_min = -100.0
+radial_accel_max = -100.0
+angle_min = -720.0
+angle_max = 720.0
+scale_amount_min = 0.0
+scale_amount_max = 5.0
+color = Color(1, 1, 1, 0.145098)
+
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+visible = false
 position = Vector2(0, -0.25)
 shape = SubResource("CircleShape2D_h5g12")
+
+[connection signal="finished" from="neck/blu" to="." method="_on_blu_finished"]

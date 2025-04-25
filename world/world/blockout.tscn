@@ -1,0 +1,14 @@
+[gd_scene load_steps=2 format=3 uid="uid://b43ckbda8crkd"]
+
+[ext_resource type="Script" path="res://world/world/Blockout.gd" id="1_cq3h8"]
+
+[node name="Blockout" type="Polygon2D"]
+polygon = PackedVector2Array(1, -6, 1, 0, 7, 0, 7, -6)
+script = ExtResource("1_cq3h8")
+
+[node name="StaticBody2D" type="StaticBody2D" parent="."]
+collision_layer = 7
+collision_mask = 3
+
+[node name="Walls" type="CollisionPolygon2D" parent="StaticBody2D"]
+polygon = PackedVector2Array(1, -6, 7, -6, 7, 0, 1, 0)
