@@ -41,6 +41,7 @@ shape = SubResource("RectangleShape2D_kwkc4")
 [node name="CPUParticles2D" type="CPUParticles2D" parent="."]
 position = Vector2(40, 0)
 amount = 128
+local_coords = true
 emission_shape = 3
 emission_rect_extents = Vector2(14.325, 67.41)
 gravity = Vector2(-70, 0)
