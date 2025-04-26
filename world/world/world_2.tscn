@@ -1,7 +1,8 @@
-[gd_scene load_steps=8 format=3 uid="uid://fj4lawdgf24m"]
+[gd_scene load_steps=9 format=3 uid="uid://fj4lawdgf24m"]
 
 [ext_resource type="PackedScene" uid="uid://b43ckbda8crkd" path="res://world/world/blockout.tscn" id="1_eutjh"]
 [ext_resource type="PackedScene" uid="uid://bi0gvxamp6cq5" path="res://world/exit/exir.tscn" id="1_y5mgp"]
+[ext_resource type="PackedScene" uid="uid://dhmcck8sndk6r" path="res://world/world/world_4.tscn" id="2_vrv26"]
 [ext_resource type="PackedScene" uid="uid://qss2uwoa25ld" path="res://ent/player/player.tscn" id="2_xqwyt"]
 [ext_resource type="Script" path="res://addons/phantom_camera/scripts/phantom_camera_host/phantom_camera_host.gd" id="3_ejy7k"]
 [ext_resource type="Script" path="res://addons/phantom_camera/scripts/phantom_camera/phantom_camera_2d.gd" id="4_jy2gy"]
@@ -26,14 +27,17 @@ polygon = PackedVector2Array(138.298, 1024.96, 247.298, 1089.96, 312, 1048, 365,
 [node name="exit" parent="." instance=ExtResource("1_y5mgp")]
 position = Vector2(1151, 1068)
 rotation = -1.5708
+next_level = ExtResource("2_vrv26")
 
 [node name="exit2" parent="." instance=ExtResource("1_y5mgp")]
 position = Vector2(1269, 1068)
 rotation = -1.5708
+next_level = ExtResource("2_vrv26")
 
 [node name="exit3" parent="." instance=ExtResource("1_y5mgp")]
 position = Vector2(1384, 1068)
 rotation = -1.5708
+next_level = ExtResource("2_vrv26")
 
 [node name="Blockout" parent="." instance=ExtResource("1_eutjh")]
 color = Color(0, 0, 0, 1)
@@ -46,6 +50,7 @@ position = Vector2(209, 1336)
 physics_interpolation_mode = 1
 position = Vector2(209, 1336)
 zoom = Vector2(4, 4)
+editor_draw_limits = true
 
 [node name="PhantomCameraHost" type="Node" parent="Camera2D"]
 process_priority = 300
@@ -60,3 +65,4 @@ follow_mode = 5
 follow_target = NodePath("../player")
 zoom = Vector2(4, 4)
 tween_resource = SubResource("Resource_cv6yw")
+draw_limits = true

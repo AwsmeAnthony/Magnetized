@@ -1,0 +1,58 @@
+[gd_scene load_steps=9 format=3 uid="uid://dutde07l0bxo6"]
+
+[ext_resource type="PackedScene" uid="uid://b43ckbda8crkd" path="res://world/world/blockout.tscn" id="1_6opdi"]
+[ext_resource type="PackedScene" uid="uid://bi0gvxamp6cq5" path="res://world/exit/exir.tscn" id="1_k31pd"]
+[ext_resource type="PackedScene" uid="uid://qss2uwoa25ld" path="res://ent/player/player.tscn" id="2_vxg71"]
+[ext_resource type="PackedScene" uid="uid://fj4lawdgf24m" path="res://world/world/world_2.tscn" id="2_whpuh"]
+[ext_resource type="Script" path="res://addons/phantom_camera/scripts/phantom_camera_host/phantom_camera_host.gd" id="3_md1wf"]
+[ext_resource type="Script" path="res://addons/phantom_camera/scripts/phantom_camera/phantom_camera_2d.gd" id="4_u44a8"]
+[ext_resource type="Script" path="res://addons/phantom_camera/scripts/resources/tween_resource.gd" id="5_bpjqo"]
+
+[sub_resource type="Resource" id="Resource_au55j"]
+script = ExtResource("5_bpjqo")
+duration = 1.0
+transition = 0
+ease = 2
+
+[node name="world_3" type="Node2D"]
+
+[node name="exit" parent="." instance=ExtResource("1_k31pd")]
+position = Vector2(1647, 625)
+rotation = -3.14159
+next_level = ExtResource("2_whpuh")
+
+[node name="Blockout" parent="." instance=ExtResource("1_6opdi")]
+color = Color(0, 0, 0, 1)
+polygon = PackedVector2Array(-2795, -1856, -3107, 5180, 10006, 5144, 9671, -3762, -2795, -1855, 929, 360, 926, 587, 1266, 596, 1259, 476, 1329, 478, 1329, 454, 1502, 460, 1501, 487, 1584, 486.415, 1587, 604, 1643, 603, 1643, 642, 1497, 641, 1494, 549, 1329, 550, 1329, 635, 1172, 634, 925, 630, 929, 360)
+
+[node name="player" parent="." instance=ExtResource("2_vxg71")]
+position = Vector2(1071, 614)
+
+[node name="Camera2D" type="Camera2D" parent="."]
+physics_interpolation_mode = 1
+position = Vector2(1071, 614)
+zoom = Vector2(4.22, 4.22)
+editor_draw_limits = true
+
+[node name="PhantomCameraHost" type="Node" parent="Camera2D"]
+process_priority = 300
+process_physics_priority = 300
+script = ExtResource("3_md1wf")
+
+[node name="PhantomCamera2D" type="Node2D" parent="." node_paths=PackedStringArray("follow_target")]
+top_level = true
+position = Vector2(1071, 614)
+script = ExtResource("4_u44a8")
+follow_mode = 5
+follow_target = NodePath("../player")
+zoom = Vector2(4.22, 4.22)
+tween_resource = SubResource("Resource_au55j")
+draw_limits = true
+
+[node name="Polygon2D" type="Polygon2D" parent="."]
+show_behind_parent = true
+z_index = -2
+position = Vector2(34, 11)
+color = Color(0.114897, 0.114897, 0.114897, 1)
+invert_enabled = true
+polygon = PackedVector2Array(906, 588, 929, 579, 974, 590, 1016, 581, 1053, 589, 1108, 587, 1145, 603, 1181, 591, 1224, 581, 1248, 592, 1252, 568, 1236, 556, 1249, 529, 1240, 496, 1283, 476, 1327, 447, 1372, 457, 1441, 478, 1516, 488, 1518, 535, 1543, 560, 1540, 599, 1596, 594, 1603, 611, 1583, 627, 1561, 614, 1531, 624, 1491, 612, 1469, 587, 1488, 552, 1467, 527, 1406, 501, 1381, 533, 1326, 522, 1279, 551, 1277, 601, 1218, 615, 1165, 619, 1125, 615, 1090, 615, 1050, 612, 1011, 620, 964, 611, 919, 613, 898, 608)

@@ -49,6 +49,7 @@ func _die():
 	if not dying:
 		return
 	
+	Engine.time_scale = 1
 	blu.emitting = true
 	red.emitting = true
 	sprite.visible = false

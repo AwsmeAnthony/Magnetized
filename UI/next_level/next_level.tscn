@@ -12,6 +12,9 @@ width = 489
 height = 639
 
 [sub_resource type="FontFile" id="FontFile_7ldcx"]
+subpixel_positioning = 0
+msdf_pixel_range = 14
+msdf_size = 128
 cache/0/16/0/ascent = 0.0
 cache/0/16/0/descent = 0.0
 cache/0/16/0/underline_position = 0.0
@@ -117,6 +120,7 @@ grow_vertical = 2
 texture = SubResource("GradientTexture2D_rwdgt")
 
 [node name="Label" type="Label" parent="TextureRect"]
+layout_mode = 0
 offset_left = 7.5
 offset_top = -19.5
 offset_right = 1117.5
