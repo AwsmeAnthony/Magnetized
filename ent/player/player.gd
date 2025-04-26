@@ -67,7 +67,7 @@ func _move():
 		pointer.visible = true
 		var rot_tween : Tween = create_tween()
 		neck.look_at(get_global_mouse_position())
-		Engine.time_scale = 0.008
+		Engine.time_scale = 0.03
 		emit_partic.emitting = true
 	else:
 		pointer.visible = false
