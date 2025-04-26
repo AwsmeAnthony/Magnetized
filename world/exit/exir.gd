@@ -9,6 +9,7 @@ extends Area2D
 
 func _on_body_entered(body: Node2D) -> void:
 	if body is Player:
+		Engine.time_scale = 1
 		next_level_node.next_level = next_level
 		body.movement_disabled = true
 		var pos_tween : Tween = create_tween()
