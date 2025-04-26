@@ -28,7 +28,7 @@ scale = Vector2(0.214844, 53)
 texture = SubResource("GradientTexture1D_u6n8t")
 
 [node name="CPUParticles2D" type="CPUParticles2D" parent="."]
-amount = 26
+amount = 13
 emission_shape = 1
 emission_sphere_radius = 59.66
 gravity = Vector2(0, 0)

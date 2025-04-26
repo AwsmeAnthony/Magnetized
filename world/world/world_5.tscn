@@ -1,0 +1,90 @@
+[gd_scene load_steps=9 format=3 uid="uid://d5rsjpd7txn3"]
+
+[ext_resource type="PackedScene" uid="uid://b43ckbda8crkd" path="res://world/world/blockout.tscn" id="1_dsc16"]
+[ext_resource type="PackedScene" uid="uid://bi0gvxamp6cq5" path="res://world/exit/exir.tscn" id="1_qo0sq"]
+[ext_resource type="PackedScene" uid="uid://cwn1iqau3owf4" path="res://world/objects/diebox.tscn" id="1_vsf5d"]
+[ext_resource type="PackedScene" uid="uid://qss2uwoa25ld" path="res://ent/player/player.tscn" id="2_2uk1u"]
+[ext_resource type="Script" path="res://addons/phantom_camera/scripts/phantom_camera_host/phantom_camera_host.gd" id="3_k8odq"]
+[ext_resource type="Script" path="res://addons/phantom_camera/scripts/phantom_camera/phantom_camera_2d.gd" id="4_k2e8g"]
+[ext_resource type="Script" path="res://addons/phantom_camera/scripts/resources/tween_resource.gd" id="5_k0daj"]
+
+[sub_resource type="Resource" id="Resource_touoc"]
+script = ExtResource("5_k0daj")
+duration = 1.0
+transition = 0
+ease = 2
+
+[node name="world_5" type="Node2D"]
+
+[node name="exit" parent="." instance=ExtResource("1_qo0sq")]
+position = Vector2(347, -303)
+rotation = 1.5708
+
+[node name="diebox3" parent="." instance=ExtResource("1_vsf5d")]
+position = Vector2(73, -7)
+
+[node name="diebox4" parent="." instance=ExtResource("1_vsf5d")]
+position = Vector2(128, -7)
+
+[node name="diebox5" parent="." instance=ExtResource("1_vsf5d")]
+position = Vector2(182, -7)
+
+[node name="diebox6" parent="." instance=ExtResource("1_vsf5d")]
+position = Vector2(237, -7)
+
+[node name="diebox7" parent="." instance=ExtResource("1_vsf5d")]
+position = Vector2(292, -7)
+
+[node name="diebox8" parent="." instance=ExtResource("1_vsf5d")]
+position = Vector2(433, -88)
+
+[node name="diebox9" parent="." instance=ExtResource("1_vsf5d")]
+position = Vector2(433, -135)
+
+[node name="diebox10" parent="." instance=ExtResource("1_vsf5d")]
+position = Vector2(433, -171)
+
+[node name="diebox11" parent="." instance=ExtResource("1_vsf5d")]
+position = Vector2(266, 172)
+
+[node name="diebox12" parent="." instance=ExtResource("1_vsf5d")]
+position = Vector2(310, 172)
+
+[node name="diebox13" parent="." instance=ExtResource("1_vsf5d")]
+position = Vector2(352, 172)
+
+[node name="Blockout" parent="." instance=ExtResource("1_dsc16")]
+color = Color(0, 0, 0, 1)
+polygon = PackedVector2Array(-452, -688, 1534, -733, 1559, 799, -676, 782, -452, -688, 47, 17, 48, 143, 136, 142, 138, 83, 246, 83, 246, 147, 377, 148, 379, -61, 407, -62, 407, -96.0015, 407, -105.129, 407, -191, 372, -191, 372, -299, 323, -299, 323, 22, 319, 22, 318.671, 17, 47, 17)
+
+[node name="player" parent="." instance=ExtResource("2_2uk1u")]
+position = Vector2(101, 136)
+
+[node name="Camera2D" type="Camera2D" parent="."]
+physics_interpolation_mode = 1
+position = Vector2(101, 136)
+zoom = Vector2(4, 4)
+editor_draw_limits = true
+
+[node name="PhantomCameraHost" type="Node" parent="Camera2D"]
+process_priority = 300
+process_physics_priority = 300
+script = ExtResource("3_k8odq")
+
+[node name="PhantomCamera2D" type="Node2D" parent="." node_paths=PackedStringArray("follow_target")]
+top_level = true
+position = Vector2(101, 136)
+script = ExtResource("4_k2e8g")
+follow_mode = 5
+follow_target = NodePath("../player")
+zoom = Vector2(4, 4)
+tween_resource = SubResource("Resource_touoc")
+draw_limits = true
+
+[node name="Polygon2D" type="Polygon2D" parent="."]
+show_behind_parent = true
+z_index = -2
+position = Vector2(-321, -500)
+color = Color(0.114897, 0.114897, 0.114897, 1)
+invert_enabled = true
+polygon = PackedVector2Array(397, 606, 404, 631, 437, 628, 433, 598, 450, 570, 504, 551, 552, 569, 595, 572, 591, 615, 630, 632, 665, 640, 682, 626, 669, 591, 685, 561, 680, 531, 682, 501, 694, 459, 703, 426, 724, 407, 712, 382, 722, 353, 717, 335, 685, 302, 686, 271, 688, 222, 667, 202, 662, 223, 652, 246, 662, 280, 655, 324, 668, 359, 653, 395, 660, 426, 657, 472, 656, 519, 634, 542, 567, 519, 539, 527, 441, 528, 432, 521, 380, 536, 375, 563)
