@@ -5,11 +5,11 @@ extends Area2D
 @onready var blu: CPUParticles2D = $blu
 @onready var red: CPUParticles2D = $red
 @onready var marker_2d: Marker2D = $Marker2D
-@onready var next_level_node: CanvasLayer = $"Next level"
+@onready var next_level_node: CanvasLayer = $"next level"
 
 func _on_body_entered(body: Node2D) -> void:
 	if body is Player:
-		#next_level_node.next_level = next_level
+		next_level_node.next_level = next_level
 		body.movement_disabled = true
 		var pos_tween : Tween = create_tween()
 		pos_tween.tween_property(body,"global_position",marker_2d.global_position,0.3)
@@ -23,4 +23,4 @@ func _on_body_entered(body: Node2D) -> void:
 		blu.emitting = true
 		red.emitting = true
 		await red.finished
-		#next_level_node.visible = true
+		next_level_node.visible = true
