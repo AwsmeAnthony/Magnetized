@@ -83,3 +83,18 @@ polygon = PackedVector2Array(-24.277, -18.3443, -24.277, 8.6557, 94.723, 8.6557,
 
 [node name="button" parent="." instance=ExtResource("8_mhpen")]
 position = Vector2(357, 866)
+
+[node name="Polygon2D" type="Polygon2D" parent="."]
+show_behind_parent = true
+z_index = -2
+position = Vector2(34, 3)
+color = Color(0.114897, 0.114897, 0.114897, 1)
+invert_enabled = true
+polygon = PackedVector2Array(153, 683, 153, 724, 193, 735, 244, 725, 279, 737, 321, 723, 349, 740, 358, 777, 337, 813, 352, 844, 321, 850, 310, 835, 284, 844, 247, 856, 232, 837, 208, 842, 173, 855, 181, 819, 171, 802, 149, 802, 136, 786, 137, 771, 127, 755, 132, 727, 132, 702, 140, 683)
+
+[node name="Polygon2D2" type="Polygon2D" parent="."]
+show_behind_parent = true
+z_index = -2
+position = Vector2(34, 3)
+color = Color(0.114897, 0.114897, 0.114897, 1)
+polygon = PackedVector2Array(201, 755, 217, 753, 252, 750, 271, 755, 289, 746, 308, 748, 326, 750, 336, 767, 331, 783, 322, 799, 285, 793, 255, 800, 228, 791, 200, 795, 187, 779)
