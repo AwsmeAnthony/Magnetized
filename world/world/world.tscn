@@ -56,7 +56,6 @@ script = ExtResource("2_kyfgl")
 top_level = true
 position = Vector2(-41, 166)
 script = ExtResource("3_55uyr")
-follow_mode = 5
 follow_target = NodePath("../player")
 zoom = Vector2(4.22, 4.22)
 tween_resource = SubResource("Resource_o0xf5")

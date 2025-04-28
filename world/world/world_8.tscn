@@ -1,18 +1,85 @@
-[gd_scene load_steps=4 format=3 uid="uid://cyllgycp6t7oc"]
+[gd_scene load_steps=13 format=3 uid="uid://cyllgycp6t7oc"]
 
-[ext_resource type="Script" path="res://world/world/Blockout.gd" id="1_enqlf"]
+[ext_resource type="PackedScene" uid="uid://bi0gvxamp6cq5" path="res://world/exit/exir.tscn" id="1_33pqa"]
 [ext_resource type="PackedScene" uid="uid://qss2uwoa25ld" path="res://ent/player/player.tscn" id="2_ap2je"]
 [ext_resource type="PackedScene" uid="uid://b21f1yaylbhn7" path="res://world/objects/box.tscn" id="2_l8yxq"]
+[ext_resource type="PackedScene" uid="uid://b43ckbda8crkd" path="res://world/world/blockout.tscn" id="3_ghl55"]
+[ext_resource type="Script" path="res://addons/phantom_camera/scripts/phantom_camera_host/phantom_camera_host.gd" id="4_5oj7u"]
+[ext_resource type="Script" path="res://addons/phantom_camera/scripts/phantom_camera/phantom_camera_2d.gd" id="5_of8x3"]
+[ext_resource type="Script" path="res://addons/phantom_camera/scripts/resources/tween_resource.gd" id="6_v7ltp"]
+[ext_resource type="PackedScene" uid="uid://cwn1iqau3owf4" path="res://world/objects/diebox.tscn" id="7_kvp8d"]
+[ext_resource type="PackedScene" uid="uid://cj5y6w0no0ty2" path="res://world/objects/button.tscn" id="8_mhpen"]
+[ext_resource type="PackedScene" uid="uid://cotwmkn4deb17" path="res://world/objects/door.tscn" id="10_w2g8g"]
+
+[sub_resource type="LabelSettings" id="LabelSettings_fcvbo"]
+font_size = 121
+outline_size = 40
+outline_color = Color(0, 0, 0, 1)
+
+[sub_resource type="Resource" id="Resource_7vbfc"]
+script = ExtResource("6_v7ltp")
+duration = 1.0
+transition = 0
+ease = 2
 
 [node name="world_8" type="Node2D"]
+metadata/_edit_horizontal_guides_ = [826.0]
+
+[node name="Label" type="Label" parent="."]
+offset_left = 238.0
+offset_top = 819.0
+offset_right = 1541.0
+offset_bottom = 1528.0
+scale = Vector2(0.065, 0.065)
+text = "If you get stuck you
+can press 'R' to restart"
+label_settings = SubResource("LabelSettings_fcvbo")
+
+[node name="door" parent="." node_paths=PackedStringArray("button") instance=ExtResource("10_w2g8g")]
+position = Vector2(181, 717)
+button = NodePath("../button")
+
+[node name="exit" parent="." instance=ExtResource("1_33pqa")]
+position = Vector2(181, 671)
+rotation = 1.5708
+
+[node name="diebox" parent="." instance=ExtResource("7_kvp8d")]
+position = Vector2(267, 894)
 
 [node name="box" parent="." instance=ExtResource("2_l8yxq")]
-position = Vector2(263, 852)
-
-[node name="Blockout2D" type="Polygon2D" parent="."]
-color = Color(0, 0, 0, 1)
-polygon = PackedVector2Array(-555, -575, 2592, -572, 2489, 1826, -1010, 1709, -555, -574, 133, 219, 132, 838, 210, 838, 210, 863, 1331, 853, 1307, 220, 133, 219)
-script = ExtResource("1_enqlf")
+position = Vector2(321, 854)
 
 [node name="player" parent="." instance=ExtResource("2_ap2je")]
-position = Vector2(183, 814)
+position = Vector2(228, 856)
+
+[node name="Blockout" parent="." instance=ExtResource("3_ghl55")]
+position = Vector2(130.212, -162.224)
+color = Color(0, 0, 0, 1)
+polygon = PackedVector2Array(-509.212, 157.224, 2211.79, 136.224, 2157.79, 2033.22, -641.212, 1811.22, -509.212, 157.224, 29.7882, 883.224, 29.7882, 986.224, 71.7882, 986.224, 71.7882, 1027.22, 107.472, 1027.22, 107.788, 1031.22, 164.788, 1031.22, 164.203, 1027.22, 212.788, 1027.22, 212.788, 1030.22, 239.788, 1030.22, 239.788, 1026.22, 270.788, 1026.22, 270.788, 883.224, 68.7882, 883.224, 68.7882, 838.224, 29.7882, 838.224, 29.7882, 883.224)
+
+[node name="Camera2D" type="Camera2D" parent="."]
+physics_interpolation_mode = 1
+position = Vector2(228, 856)
+zoom = Vector2(4, 4)
+editor_draw_limits = true
+
+[node name="PhantomCameraHost" type="Node" parent="Camera2D"]
+process_priority = 300
+process_physics_priority = 300
+script = ExtResource("4_5oj7u")
+
+[node name="PhantomCamera2D" type="Node2D" parent="." node_paths=PackedStringArray("follow_target")]
+top_level = true
+position = Vector2(228, 856)
+script = ExtResource("5_of8x3")
+follow_target = NodePath("../player")
+tween_resource = SubResource("Resource_7vbfc")
+draw_limits = true
+
+[node name="Blockout2" parent="." instance=ExtResource("3_ghl55")]
+position = Vector2(265, 781)
+color = Color(0, 0, 0, 1)
+polygon = PackedVector2Array(-24.277, -18.3443, -24.277, 8.6557, 94.723, 8.6557, 94.723, -18.3443)
+
+[node name="button" parent="." instance=ExtResource("8_mhpen")]
+position = Vector2(357, 866)

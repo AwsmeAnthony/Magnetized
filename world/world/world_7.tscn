@@ -46,9 +46,7 @@ script = ExtResource("4_6x4gc")
 top_level = true
 position = Vector2(187, 378)
 script = ExtResource("5_dohtu")
-follow_mode = 5
 follow_target = NodePath("../player")
-zoom = Vector2(4, 4)
 tween_resource = SubResource("Resource_fgjop")
 draw_limits = true
 

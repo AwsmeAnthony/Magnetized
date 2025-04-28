@@ -133,7 +133,7 @@ enum FollowLockAxis {
 ## The different modes have different functionalities and purposes, so
 ## choosing the correct one depends on what each [param PhantomCamera2D]
 ## is meant to do.
-@export var follow_mode: FollowMode = FollowMode.NONE:
+@export var follow_mode: FollowMode = FollowMode.FRAMED:
 	set(value):
 		follow_mode = value
 
@@ -190,7 +190,7 @@ enum FollowLockAxis {
 
 ## Applies a zoom level to the [param PhantomCamera2D], which effectively
 ## overrides the [param zoom] property of the [param Camera2D] node.
-@export var zoom: Vector2 = Vector2.ONE:
+@export var zoom: Vector2 = Vector2(4,4):
 	set = set_zoom,
 	get = get_zoom
 

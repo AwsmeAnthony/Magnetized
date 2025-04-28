@@ -1,0 +1,17 @@
+[gd_scene load_steps=3 format=3 uid="uid://cotwmkn4deb17"]
+
+[ext_resource type="Script" path="res://world/objects/door.gd" id="1_c1jkn"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_spyx1"]
+size = Vector2(86, 7)
+
+[node name="door" type="StaticBody2D"]
+script = ExtResource("1_c1jkn")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(0, 0.5)
+shape = SubResource("RectangleShape2D_spyx1")
+
+[node name="Polygon2D" type="Polygon2D" parent="."]
+color = Color(0.165656, 0.165656, 0.165656, 1)
+polygon = PackedVector2Array(-43, -3, 43, -3, 43, 4, -43, 4)
