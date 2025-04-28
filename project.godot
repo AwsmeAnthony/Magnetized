@@ -14,6 +14,8 @@ config/name="megneto"
 run/main_scene="res://world/world/world.tscn"
 config/features=PackedStringArray("4.3", "GL Compatibility")
 run/max_fps=60
+boot_splash/bg_color=Color(0, 0, 0, 1)
+boot_splash/image="res://splash.png"
 config/icon="res://icon.svg"
 
 [autoload]

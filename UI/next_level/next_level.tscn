@@ -1,4 +1,4 @@
-[gd_scene load_steps=6 format=3 uid="uid://rxkc3jno4co8"]
+[gd_scene load_steps=5 format=3 uid="uid://rxkc3jno4co8"]
 
 [ext_resource type="Script" path="res://UI/next_level/next_level.gd" id="1_ylplb"]
 
@@ -11,94 +11,8 @@ gradient = SubResource("Gradient_xaivj")
 width = 489
 height = 639
 
-[sub_resource type="FontFile" id="FontFile_7ldcx"]
-subpixel_positioning = 0
-msdf_pixel_range = 14
-msdf_size = 128
-cache/0/16/0/ascent = 0.0
-cache/0/16/0/descent = 0.0
-cache/0/16/0/underline_position = 0.0
-cache/0/16/0/underline_thickness = 0.0
-cache/0/16/0/scale = 1.0
-cache/0/56/0/ascent = 0.0
-cache/0/56/0/descent = 0.0
-cache/0/56/0/underline_position = 0.0
-cache/0/56/0/underline_thickness = 0.0
-cache/0/56/0/scale = 1.0
-cache/0/76/0/ascent = 0.0
-cache/0/76/0/descent = 0.0
-cache/0/76/0/underline_position = 0.0
-cache/0/76/0/underline_thickness = 0.0
-cache/0/76/0/scale = 1.0
-cache/0/71/0/ascent = 0.0
-cache/0/71/0/descent = 0.0
-cache/0/71/0/underline_position = 0.0
-cache/0/71/0/underline_thickness = 0.0
-cache/0/71/0/scale = 1.0
-cache/0/66/0/ascent = 0.0
-cache/0/66/0/descent = 0.0
-cache/0/66/0/underline_position = 0.0
-cache/0/66/0/underline_thickness = 0.0
-cache/0/66/0/scale = 1.0
-cache/0/61/0/ascent = 0.0
-cache/0/61/0/descent = 0.0
-cache/0/61/0/underline_position = 0.0
-cache/0/61/0/underline_thickness = 0.0
-cache/0/61/0/scale = 1.0
-cache/0/81/0/ascent = 0.0
-cache/0/81/0/descent = 0.0
-cache/0/81/0/underline_position = 0.0
-cache/0/81/0/underline_thickness = 0.0
-cache/0/81/0/scale = 1.0
-cache/0/106/0/ascent = 0.0
-cache/0/106/0/descent = 0.0
-cache/0/106/0/underline_position = 0.0
-cache/0/106/0/underline_thickness = 0.0
-cache/0/106/0/scale = 1.0
-cache/0/116/0/ascent = 0.0
-cache/0/116/0/descent = 0.0
-cache/0/116/0/underline_position = 0.0
-cache/0/116/0/underline_thickness = 0.0
-cache/0/116/0/scale = 1.0
-cache/0/126/0/ascent = 0.0
-cache/0/126/0/descent = 0.0
-cache/0/126/0/underline_position = 0.0
-cache/0/126/0/underline_thickness = 0.0
-cache/0/126/0/scale = 1.0
-cache/0/136/0/ascent = 0.0
-cache/0/136/0/descent = 0.0
-cache/0/136/0/underline_position = 0.0
-cache/0/136/0/underline_thickness = 0.0
-cache/0/136/0/scale = 1.0
-cache/0/146/0/ascent = 0.0
-cache/0/146/0/descent = 0.0
-cache/0/146/0/underline_position = 0.0
-cache/0/146/0/underline_thickness = 0.0
-cache/0/146/0/scale = 1.0
-cache/0/166/0/ascent = 0.0
-cache/0/166/0/descent = 0.0
-cache/0/166/0/underline_position = 0.0
-cache/0/166/0/underline_thickness = 0.0
-cache/0/166/0/scale = 1.0
-cache/0/161/0/ascent = 0.0
-cache/0/161/0/descent = 0.0
-cache/0/161/0/underline_position = 0.0
-cache/0/161/0/underline_thickness = 0.0
-cache/0/161/0/scale = 1.0
-cache/0/141/0/ascent = 0.0
-cache/0/141/0/descent = 0.0
-cache/0/141/0/underline_position = 0.0
-cache/0/141/0/underline_thickness = 0.0
-cache/0/141/0/scale = 1.0
-cache/0/131/0/ascent = 0.0
-cache/0/131/0/descent = 0.0
-cache/0/131/0/underline_position = 0.0
-cache/0/131/0/underline_thickness = 0.0
-cache/0/131/0/scale = 1.0
-
 [sub_resource type="LabelSettings" id="LabelSettings_7drpj"]
-font = SubResource("FontFile_7ldcx")
-font_size = 131
+font_size = 126
 outline_size = 40
 outline_color = Color(0, 0, 0, 1)
 
@@ -129,12 +43,31 @@ scale = Vector2(0.85, 0.85)
 text = "Good Job"
 label_settings = SubResource("LabelSettings_7drpj")
 
+[node name="Label2" type="Label" parent="TextureRect"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -880.0
+offset_top = -222.0
+offset_right = 2387.0
+offset_bottom = -50.0
+grow_horizontal = 2
+grow_vertical = 2
+scale = Vector2(0.53, 0.53)
+text = "Clicks"
+label_settings = SubResource("LabelSettings_7drpj")
+horizontal_alignment = 1
+vertical_alignment = 1
+
 [node name="Button" type="Button" parent="TextureRect"]
 layout_mode = 0
 offset_left = 2.0
-offset_top = 126.0
+offset_top = 190.0
 offset_right = 489.0
-offset_bottom = 639.0
+offset_bottom = 640.0
 theme_override_font_sizes/font_size = 56
 text = "Next Level"
 

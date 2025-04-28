@@ -11,10 +11,12 @@ class_name Player
 @onready var fly_partics: CPUParticles2D = $"neck/fly partics"
 @onready var blu: CPUParticles2D = $neck/blu
 @onready var red: CPUParticles2D = $neck/red
+@onready var sfx: AudioStreamPlayer2D = $sfx
 
 var offset : Vector2 = Vector2(0,0)
 var dying : bool = false
 var movement_disabled : bool = false
+var boxing : bool = false
 
 func _physics_process(delta: float) -> void:
 	if movement_disabled:
@@ -56,6 +58,8 @@ func _die():
 	
 
 func _align_rotation():	
+	if boxing:
+		return
 	if neg.is_colliding() and not pos.is_colliding():
 		neck.rotation += deg_to_rad(10)
 	if not neg.is_colliding() and pos.is_colliding():
@@ -78,3 +82,21 @@ func _move():
 
 func _on_blu_finished() -> void:
 	get_tree().reload_current_scene()
+
+
+func _on_box_detect_body_entered(body: Node2D) -> void:
+	if body is Box:
+		boxing = true
+		body.player_vel = (Vector2.RIGHT.rotated(neck.rotation)) * -1
+		body.player_in = true
+
+
+func _on_box_detect_body_exited(body: Node2D) -> void:
+	if body is Box:
+		boxing = false
+		body.player_in = false
+
+
+func _on_soundcol_body_entered(body: Node2D) -> void:
+	if body.get_parent() is Blockout2D or body is Box:
+		sfx.play()

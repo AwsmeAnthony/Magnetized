@@ -1,13 +1,20 @@
-[gd_scene load_steps=6 format=3 uid="uid://qss2uwoa25ld"]
+[gd_scene load_steps=9 format=3 uid="uid://qss2uwoa25ld"]
 
 [ext_resource type="Texture2D" uid="uid://co51lwykr3edo" path="res://ent/player/player.png" id="1_fy8at"]
 [ext_resource type="Script" path="res://ent/player/player.gd" id="1_p6rcs"]
+[ext_resource type="AudioStream" uid="uid://daxhqk0xxe830" path="res://UI/sound1.wav" id="3_jyruy"]
 
 [sub_resource type="Gradient" id="Gradient_6bpgd"]
 colors = PackedColorArray(1, 1, 1, 1, 1, 1, 1, 0)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_y3uy4"]
 size = Vector2(2.79, 7.075)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_mlcm8"]
+size = Vector2(96, 7)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_7vfu5"]
+size = Vector2(3, 8)
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_h5g12"]
 radius = 6.00521
@@ -115,9 +122,27 @@ scale_amount_min = 0.0
 scale_amount_max = 5.0
 color = Color(1, 1, 1, 0.145098)
 
+[node name="box detect" type="Area2D" parent="neck"]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="neck/box detect"]
+position = Vector2(48, -0.500046)
+shape = SubResource("RectangleShape2D_mlcm8")
+
+[node name="soundcol" type="Area2D" parent="neck"]
+
+[node name="soundcol" type="CollisionShape2D" parent="neck/soundcol"]
+position = Vector2(5.5, -5.72207e-06)
+shape = SubResource("RectangleShape2D_7vfu5")
+debug_color = Color(0.806859, 0.412605, 0.109629, 0.42)
+
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-visible = false
 position = Vector2(0, -0.25)
 shape = SubResource("CircleShape2D_h5g12")
 
+[node name="sfx" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("3_jyruy")
+
 [connection signal="finished" from="neck/blu" to="." method="_on_blu_finished"]
+[connection signal="body_entered" from="neck/box detect" to="." method="_on_box_detect_body_entered"]
+[connection signal="body_exited" from="neck/box detect" to="." method="_on_box_detect_body_exited"]
+[connection signal="body_entered" from="neck/soundcol" to="." method="_on_soundcol_body_entered"]

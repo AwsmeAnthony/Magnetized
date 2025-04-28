@@ -1,0 +1,18 @@
+[gd_scene load_steps=4 format=3 uid="uid://cyllgycp6t7oc"]
+
+[ext_resource type="Script" path="res://world/world/Blockout.gd" id="1_enqlf"]
+[ext_resource type="PackedScene" uid="uid://qss2uwoa25ld" path="res://ent/player/player.tscn" id="2_ap2je"]
+[ext_resource type="PackedScene" uid="uid://b21f1yaylbhn7" path="res://world/objects/box.tscn" id="2_l8yxq"]
+
+[node name="world_8" type="Node2D"]
+
+[node name="box" parent="." instance=ExtResource("2_l8yxq")]
+position = Vector2(263, 852)
+
+[node name="Blockout2D" type="Polygon2D" parent="."]
+color = Color(0, 0, 0, 1)
+polygon = PackedVector2Array(-555, -575, 2592, -572, 2489, 1826, -1010, 1709, -555, -574, 133, 219, 132, 838, 210, 838, 210, 863, 1331, 853, 1307, 220, 133, 219)
+script = ExtResource("1_enqlf")
+
+[node name="player" parent="." instance=ExtResource("2_ap2je")]
+position = Vector2(183, 814)

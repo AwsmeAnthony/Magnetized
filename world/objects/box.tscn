@@ -1,0 +1,15 @@
+[gd_scene load_steps=3 format=3 uid="uid://b21f1yaylbhn7"]
+
+[ext_resource type="Script" path="res://world/objects/box.gd" id="1_vmge7"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_a5aom"]
+
+[node name="box" type="CharacterBody2D"]
+script = ExtResource("1_vmge7")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("RectangleShape2D_a5aom")
+
+[node name="Polygon2D" type="Polygon2D" parent="."]
+color = Color(0.543214, 0.348702, 0.285859, 1)
+polygon = PackedVector2Array(-10, -10, 10, -10, 10, 10, -10, 10)
