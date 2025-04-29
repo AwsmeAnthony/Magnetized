@@ -10,8 +10,8 @@ config_version=5
 
 [application]
 
-config/name="megneto"
-run/main_scene="res://world/world/world.tscn"
+config/name="Magnetized"
+run/main_scene="res://UI/main_menu.tscn"
 config/features=PackedStringArray("4.3", "GL Compatibility")
 run/max_fps=60
 boot_splash/bg_color=Color(0, 0, 0, 1)
