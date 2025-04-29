@@ -1,0 +1,200 @@
+[gd_scene load_steps=6 format=3 uid="uid://ucf63yt2nlmb"]
+
+[ext_resource type="Script" path="res://UI/level_sellect.gd" id="1_2260l"]
+[ext_resource type="Texture2D" uid="uid://dbycg1fcvb5i4" path="res://UI/levelss/Screenshot 2025-04-29 163844.png" id="1_p8q65"]
+[ext_resource type="AudioStream" uid="uid://daxhqk0xxe830" path="res://UI/sound1.wav" id="3_mkifi"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_vef53"]
+bg_color = Color(0.6, 0, 0, 1)
+
+[sub_resource type="LabelSettings" id="LabelSettings_6s8my"]
+font_size = 141
+outline_size = 70
+outline_color = Color(0, 0, 0, 1)
+
+[node name="level sellect" type="CanvasLayer"]
+script = ExtResource("1_2260l")
+
+[node name="vfx" type="ColorRect" parent="."]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0, 0, 0, 1)
+metadata/_edit_use_anchors_ = true
+
+[node name="BoxContainer" type="BoxContainer" parent="vfx"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+grow_horizontal = 2
+grow_vertical = 2
+metadata/_edit_use_anchors_ = true
+
+[node name="Polygon2D" type="Polygon2D" parent="vfx/BoxContainer"]
+color = Color(0.114897, 0.114897, 0.114897, 1)
+polygon = PackedVector2Array(-446, 314, -457, -99, -426, -406, -341, -505, -96, -418, -17, -480, 230, -471, 409, -435, 508, -150, 531, 54, 472, 364, 342, 314, 192, 411, 99, 357, -177, 462, -381, 395)
+
+[node name="Polygon2D2" type="Polygon2D" parent="vfx/BoxContainer"]
+color = Color(0.262932, 0.262932, 0.262932, 1)
+polygon = PackedVector2Array(-279, 325, -323, 189, -303, 83, -343, 3, -349, -109, -325, -225, -247, -321, -175, -337, -91, -239, -19, -363, 135, -397, 281, -385, 343, -291, 421, -149, 421, 3, 427, 189, 337, 237, 199, 356, 124, 302, -91, 390, -199, 375, -275, 341)
+
+[node name="Polygon2D3" type="Polygon2D" parent="vfx/BoxContainer"]
+polygon = PackedVector2Array(-611, -113, 611, -114, 611, 114, -611, 113)
+
+[node name="HBoxContainer" type="HBoxContainer" parent="."]
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -20.0
+offset_top = -20.0
+offset_right = 20.0
+offset_bottom = 20.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="left" type="Button" parent="HBoxContainer"]
+layout_mode = 2
+text = "<--"
+
+[node name="ss_rect_1" type="TextureRect" parent="HBoxContainer"]
+custom_minimum_size = Vector2(374.4, 210.6)
+layout_mode = 2
+texture = ExtResource("1_p8q65")
+expand_mode = 2
+
+[node name="Button" type="Button" parent="HBoxContainer/ss_rect_1"]
+layout_mode = 0
+offset_top = -1.0
+offset_right = 375.0
+offset_bottom = 209.0
+theme_override_styles/focus = SubResource("StyleBoxFlat_vef53")
+theme_override_styles/disabled_mirrored = SubResource("StyleBoxFlat_vef53")
+theme_override_styles/disabled = SubResource("StyleBoxFlat_vef53")
+theme_override_styles/hover_pressed_mirrored = SubResource("StyleBoxFlat_vef53")
+theme_override_styles/hover_pressed = SubResource("StyleBoxFlat_vef53")
+theme_override_styles/hover_mirrored = SubResource("StyleBoxFlat_vef53")
+theme_override_styles/hover = SubResource("StyleBoxFlat_vef53")
+theme_override_styles/pressed_mirrored = SubResource("StyleBoxFlat_vef53")
+theme_override_styles/pressed = SubResource("StyleBoxFlat_vef53")
+theme_override_styles/normal_mirrored = SubResource("StyleBoxFlat_vef53")
+theme_override_styles/normal = SubResource("StyleBoxFlat_vef53")
+
+[node name="Button2" type="Button" parent="HBoxContainer/ss_rect_1"]
+layout_mode = 0
+offset_top = -1.0
+offset_right = 375.0
+offset_bottom = 209.0
+theme_override_styles/focus = SubResource("StyleBoxFlat_vef53")
+theme_override_styles/disabled_mirrored = SubResource("StyleBoxFlat_vef53")
+theme_override_styles/disabled = SubResource("StyleBoxFlat_vef53")
+theme_override_styles/hover_pressed_mirrored = SubResource("StyleBoxFlat_vef53")
+theme_override_styles/hover_pressed = SubResource("StyleBoxFlat_vef53")
+theme_override_styles/hover_mirrored = SubResource("StyleBoxFlat_vef53")
+theme_override_styles/hover = SubResource("StyleBoxFlat_vef53")
+theme_override_styles/pressed_mirrored = SubResource("StyleBoxFlat_vef53")
+theme_override_styles/pressed = SubResource("StyleBoxFlat_vef53")
+theme_override_styles/normal_mirrored = SubResource("StyleBoxFlat_vef53")
+theme_override_styles/normal = SubResource("StyleBoxFlat_vef53")
+
+[node name="HSplitContainer" type="HSplitContainer" parent="HBoxContainer"]
+layout_mode = 2
+
+[node name="HSplitContainer2" type="HSplitContainer" parent="HBoxContainer"]
+layout_mode = 2
+
+[node name="ss_rect_2" type="TextureRect" parent="HBoxContainer"]
+custom_minimum_size = Vector2(374.4, 210.6)
+layout_mode = 2
+texture = ExtResource("1_p8q65")
+expand_mode = 2
+
+[node name="Button" type="Button" parent="HBoxContainer/ss_rect_2"]
+offset_top = -1.0
+offset_right = 375.0
+offset_bottom = 209.0
+theme_override_styles/focus = SubResource("StyleBoxFlat_vef53")
+theme_override_styles/disabled_mirrored = SubResource("StyleBoxFlat_vef53")
+theme_override_styles/disabled = SubResource("StyleBoxFlat_vef53")
+theme_override_styles/hover_pressed_mirrored = SubResource("StyleBoxFlat_vef53")
+theme_override_styles/hover_pressed = SubResource("StyleBoxFlat_vef53")
+theme_override_styles/hover_mirrored = SubResource("StyleBoxFlat_vef53")
+theme_override_styles/hover = SubResource("StyleBoxFlat_vef53")
+theme_override_styles/pressed_mirrored = SubResource("StyleBoxFlat_vef53")
+theme_override_styles/pressed = SubResource("StyleBoxFlat_vef53")
+theme_override_styles/normal_mirrored = SubResource("StyleBoxFlat_vef53")
+theme_override_styles/normal = SubResource("StyleBoxFlat_vef53")
+
+[node name="HSplitContainer3" type="HSplitContainer" parent="HBoxContainer"]
+layout_mode = 2
+
+[node name="HSplitContainer4" type="HSplitContainer" parent="HBoxContainer"]
+layout_mode = 2
+
+[node name="HSplitContainer5" type="HSplitContainer" parent="HBoxContainer"]
+layout_mode = 2
+
+[node name="ss_rect_3" type="TextureRect" parent="HBoxContainer"]
+custom_minimum_size = Vector2(374.4, 210.6)
+layout_mode = 2
+texture = ExtResource("1_p8q65")
+expand_mode = 2
+
+[node name="Button" type="Button" parent="HBoxContainer/ss_rect_3"]
+offset_top = -1.0
+offset_right = 375.0
+offset_bottom = 209.0
+theme_override_styles/focus = SubResource("StyleBoxFlat_vef53")
+theme_override_styles/disabled_mirrored = SubResource("StyleBoxFlat_vef53")
+theme_override_styles/disabled = SubResource("StyleBoxFlat_vef53")
+theme_override_styles/hover_pressed_mirrored = SubResource("StyleBoxFlat_vef53")
+theme_override_styles/hover_pressed = SubResource("StyleBoxFlat_vef53")
+theme_override_styles/hover_mirrored = SubResource("StyleBoxFlat_vef53")
+theme_override_styles/hover = SubResource("StyleBoxFlat_vef53")
+theme_override_styles/pressed_mirrored = SubResource("StyleBoxFlat_vef53")
+theme_override_styles/pressed = SubResource("StyleBoxFlat_vef53")
+theme_override_styles/normal_mirrored = SubResource("StyleBoxFlat_vef53")
+theme_override_styles/normal = SubResource("StyleBoxFlat_vef53")
+
+[node name="right" type="Button" parent="HBoxContainer"]
+layout_mode = 2
+text = "-->"
+
+[node name="Label" type="Label" parent="."]
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -332.0
+offset_top = -320.0
+offset_right = 333.0
+offset_bottom = -127.0
+grow_horizontal = 2
+grow_vertical = 2
+size_flags_horizontal = 4
+text = "Levels 1-3"
+label_settings = SubResource("LabelSettings_6s8my")
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Button" type="Button" parent="."]
+offset_right = 8.0
+offset_bottom = 8.0
+theme_override_font_sizes/font_size = 51
+text = "<----
+"
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("3_mkifi")
+autoplay = true
+
+[connection signal="pressed" from="HBoxContainer/left" to="." method="_on_left_pressed"]
+[connection signal="pressed" from="HBoxContainer/right" to="." method="_on_right_pressed"]
+[connection signal="pressed" from="Button" to="." method="_on_button_pressed"]
