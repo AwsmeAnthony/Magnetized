@@ -63,4 +63,5 @@ position = Vector2(273, 735)
 script = ExtResource("5_vnjy2")
 follow_target = NodePath("../player")
 tween_resource = SubResource("Resource_10nf1")
+tween_on_load = true
 draw_limits = true

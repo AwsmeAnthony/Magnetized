@@ -1,0 +1,89 @@
+[gd_scene load_steps=12 format=3 uid="uid://br8crly5rhxo"]
+
+[ext_resource type="PackedScene" uid="uid://qss2uwoa25ld" path="res://ent/player/player.tscn" id="1_wyi86"]
+[ext_resource type="Script" path="res://addons/phantom_camera/scripts/phantom_camera_host/phantom_camera_host.gd" id="2_4tm61"]
+[ext_resource type="Script" path="res://addons/phantom_camera/scripts/phantom_camera/phantom_camera_2d.gd" id="3_f1ghd"]
+[ext_resource type="PackedScene" uid="uid://cotwmkn4deb17" path="res://world/objects/door.tscn" id="3_upc2r"]
+[ext_resource type="Script" path="res://addons/phantom_camera/scripts/resources/tween_resource.gd" id="4_e01p5"]
+[ext_resource type="PackedScene" uid="uid://b43ckbda8crkd" path="res://world/world/blockout.tscn" id="5_jumw2"]
+[ext_resource type="PackedScene" uid="uid://bi0gvxamp6cq5" path="res://world/exit/exir.tscn" id="6_vuffu"]
+[ext_resource type="PackedScene" uid="uid://cwn1iqau3owf4" path="res://world/objects/diebox.tscn" id="8_bo4j6"]
+[ext_resource type="PackedScene" uid="uid://cj5y6w0no0ty2" path="res://world/objects/button.tscn" id="9_k26vt"]
+[ext_resource type="PackedScene" uid="uid://b21f1yaylbhn7" path="res://world/objects/box.tscn" id="10_3ax3i"]
+
+[sub_resource type="Resource" id="Resource_65lea"]
+script = ExtResource("4_e01p5")
+duration = 1.0
+transition = 0
+ease = 2
+
+[node name="world 9" type="Node2D"]
+
+[node name="exit" parent="." instance=ExtResource("6_vuffu")]
+position = Vector2(-152, 250)
+
+[node name="diebox" parent="." instance=ExtResource("8_bo4j6")]
+position = Vector2(-123, 42)
+
+[node name="diebox3" parent="." instance=ExtResource("8_bo4j6")]
+position = Vector2(68, 77)
+
+[node name="diebox2" parent="." instance=ExtResource("8_bo4j6")]
+position = Vector2(13, 77)
+
+[node name="diebox6" parent="." instance=ExtResource("8_bo4j6")]
+position = Vector2(150, 344)
+
+[node name="diebox4" parent="." instance=ExtResource("8_bo4j6")]
+position = Vector2(211, 196)
+
+[node name="door" parent="." node_paths=PackedStringArray("button") instance=ExtResource("3_upc2r")]
+position = Vector2(-97.8731, 225.865)
+rotation = 1.5708
+button = NodePath("../button")
+
+[node name="door2" parent="." node_paths=PackedStringArray("button") instance=ExtResource("3_upc2r")]
+position = Vector2(-98, 283)
+rotation = 1.5708
+button = NodePath("../button")
+
+[node name="player" parent="." instance=ExtResource("1_wyi86")]
+position = Vector2(-68, 291)
+
+[node name="Camera2D" type="Camera2D" parent="."]
+physics_interpolation_mode = 1
+position = Vector2(-68, 291)
+rotation = 0.13798
+zoom = Vector2(4, 4)
+editor_draw_limits = true
+
+[node name="PhantomCameraHost" type="Node" parent="Camera2D"]
+process_priority = 300
+process_physics_priority = 300
+script = ExtResource("2_4tm61")
+
+[node name="PhantomCamera2D" type="Node2D" parent="." node_paths=PackedStringArray("follow_target")]
+position = Vector2(-68, 291)
+rotation = 0.13798
+script = ExtResource("3_f1ghd")
+follow_target = NodePath("../player")
+tween_resource = SubResource("Resource_65lea")
+draw_limits = true
+
+[node name="Blockout" parent="." instance=ExtResource("5_jumw2")]
+color = Color(0, 0, 0, 1)
+polygon = PackedVector2Array(-770, -1061, 2212, -1126, 2121, 1142, -1084, 782, -770, -1061, -88, 197, -148, 197, -148, 300, -32.4976, 299.904, -23.2862, 292.666, -23, 151, -57, 151, -57, 109, -22, 109, -22, 49, -14, 49, -14, 52, 96, 52, 96, 48, 103, 48, 103, 153, 71, 153, 71, 191, 103, 191, 103, 259.934, 12, 260, 12, 312, 68, 312, 68.5068, 316, 129.178, 316, 129, 319, 147, 319, 147, 316, 147, 221, 185, 221, 185, 183, 147.427, 183.056, 147, 109, 133, 109, 133, 83, 148, 83, 148, 5, -22, 5, -22, -5, -89, -5, -89, 17, -99, 17, -99, 66, -88.6482, 66.0525, -88, 197)
+
+[node name="button" parent="." instance=ExtResource("9_k26vt")]
+position = Vector2(78, 314)
+
+[node name="box" parent="." instance=ExtResource("10_3ax3i")]
+position = Vector2(162, 210)
+
+[node name="Polygon2D" type="Polygon2D" parent="."]
+show_behind_parent = true
+z_index = -2
+position = Vector2(34, 3)
+color = Color(0.114897, 0.114897, 0.114897, 1)
+invert_enabled = true
+polygon = PackedVector2Array(-168, 209, -134, 211, -114, 200, -108, 179, -117, 149, -109, 113, -113, 78, -124, 48, -127, 28, -114, 18, -110, -4, -95, -4, -65, 1, -55, 21, -17, 13, 26, 12, 75, 12, 105, 29, 102, 65, 87, 86, 89, 110, 104, 118, 105, 145, 104, 171, 112, 185, 141, 190, 141, 200, 115, 214, 106, 231, 102, 281, 92, 303, 75, 305, 40, 304, 17, 304, -10, 299, -13, 286, -13, 276, 8, 272, 42, 272, 72, 269, 81, 258, 81, 240, 78, 219, 78, 199, 77, 178, 58, 177, 48, 168, 48, 154, 71, 158, 75, 143, 75, 121, 75, 98, 74, 52, 68, 32, 22, 36, -26, 36, -67, 42, -71, 65, -71, 96, -87, 96, -98, 127, -90, 161, -73, 162, -70, 214, -72, 288, -128, 284, -177, 287)

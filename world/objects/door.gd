@@ -6,6 +6,8 @@ extends StaticBody2D
 @onready var polygon_2d: Polygon2D = $Polygon2D
 
 func _process(delta: float) -> void:
+	if button == null:
+		return
 	if button.pressed:
 		collision_shape_2d.disabled = true
 		polygon_2d.visible = false

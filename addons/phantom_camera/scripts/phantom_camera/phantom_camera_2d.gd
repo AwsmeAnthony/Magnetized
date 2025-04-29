@@ -235,7 +235,7 @@ enum FollowLockAxis {
 ## is attached to a playable character that can be moved the moment a scene
 ## is loaded. Disabling the [param tween_on_load] property will
 ## disable this behaviour and skip the tweening entirely when instantiated.
-@export var tween_on_load: bool = true:
+@export var tween_on_load: bool = false:
 	set = set_tween_on_load,
 	get = get_tween_on_load
 

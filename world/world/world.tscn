@@ -59,6 +59,7 @@ script = ExtResource("3_55uyr")
 follow_target = NodePath("../player")
 zoom = Vector2(4.22, 4.22)
 tween_resource = SubResource("Resource_o0xf5")
+tween_on_load = true
 follow_damping = true
 draw_limits = true
 
