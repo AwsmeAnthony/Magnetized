@@ -8,30 +8,30 @@ extends CanvasLayer
 
 var dir = "res://UI/levelss/"
 var levels_dir = "res://world/world/"
-var files : Array = []
-var level_files : Array = []
+var files : Array = ["res://UI/levelss/Screenshot 2025-04-29 163844.png", "res://UI/levelss/Screenshot 2025-04-29 163907.png", "res://UI/levelss/Screenshot 2025-04-29 163944.png", "res://UI/levelss/Screenshot 2025-04-29 163950.png", "res://UI/levelss/Screenshot 2025-04-29 164010.png", "res://UI/levelss/Screenshot 2025-04-29 164028.png", "res://UI/levelss/Screenshot 2025-04-29 164048.png", "res://UI/levelss/Screenshot 2025-04-29 164102.png", "res://UI/levelss/Screenshot 2025-04-29 164131.png"]
+var level_files : Array = ["res://world/world/world.tscn", "res://world/world/world_2.tscn", "res://world/world/world_3.tscn", "res://world/world/world_4.tscn", "res://world/world/world_5.tscn", "res://world/world/world_6.tscn", "res://world/world/world_7.tscn", "res://world/world/world_8.tscn", "res://world/world/world_9.tscn"]
 var index : int = 0
 
-func _ready() -> void:
-	dir = DirAccess.open(dir)
-	if dir:
-		dir.list_dir_begin()
-		for file in dir.get_files():
-			var filename = dir.get_files()[dir.get_files().find(file)]
-			if not ".import" in filename:
-				files.append(str("res://UI/levelss/",file))
-		dir.list_dir_end()
-
-	dir = DirAccess.open(levels_dir)
-	if dir:
-		dir.list_dir_begin()
-		for file in dir.get_files():
-			var filename = dir.get_files()[dir.get_files().find(file)]
-			if "world" in filename:
-				level_files.append(str("res://world/world/",file))
-		dir.list_dir_end()
-	
-	print(level_files)
+#func _ready() -> void:
+	#dir = DirAccess.open(dir)
+	#if dir:
+		#dir.list_dir_begin()
+		#for file in dir.get_files():
+			#var filename = dir.get_files()[dir.get_files().find(file)]
+			#if not ".import" in filename:
+				#files.append(str("res://UI/levelss/",file))
+		#dir.list_dir_end()
+#
+	#dir = DirAccess.open(levels_dir)
+	#if dir:
+		#dir.list_dir_begin()
+		#for file in dir.get_files():
+			#var filename = dir.get_files()[dir.get_files().find(file)]
+			#if "world" in filename:
+				#level_files.append(str("res://world/world/",file))
+		#dir.list_dir_end()
+	#
+	#
 
 func _process(delta: float) -> void:
 	label.text = str("Levels ", index+1, " - ", index+3)
