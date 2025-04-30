@@ -7,7 +7,9 @@ extends CanvasLayer
 @onready var audio_stream_player: AudioStreamPlayer = $AudioStreamPlayer
 
 var dir = "res://UI/levelss/"
+var levels_dir = "res://world/world/"
 var files : Array = []
+var level_files : Array = []
 var index : int = 0
 
 func _ready() -> void:
@@ -19,7 +21,17 @@ func _ready() -> void:
 			if not ".import" in filename:
 				files.append(str("res://UI/levelss/",file))
 		dir.list_dir_end()
+
+	dir = DirAccess.open(levels_dir)
+	if dir:
+		dir.list_dir_begin()
+		for file in dir.get_files():
+			var filename = dir.get_files()[dir.get_files().find(file)]
+			if "world" in filename:
+				level_files.append(str("res://world/world/",file))
+		dir.list_dir_end()
 	
+	print(level_files)
 
 func _process(delta: float) -> void:
 	label.text = str("Levels ", index+1, " - ", index+3)
@@ -42,3 +54,15 @@ func _on_right_pressed() -> void:
 	if index + 3 < len(files):
 		index += 1
 		audio_stream_player.play()
+
+
+func _on_l_1_pressed() -> void:
+	get_tree().change_scene_to_file(level_files[index])
+
+
+func _on_l_2_pressed() -> void:
+	get_tree().change_scene_to_file(level_files[index + 1])
+
+
+func _on_l_3_pressed() -> void:
+	get_tree().change_scene_to_file(level_files[index + 2])
