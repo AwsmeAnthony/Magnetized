@@ -1,7 +1,8 @@
-[gd_scene load_steps=4 format=3 uid="uid://dtrpsvk14v5l5"]
+[gd_scene load_steps=5 format=3 uid="uid://dtrpsvk14v5l5"]
 
 [ext_resource type="Script" path="res://UI/main_menu.gd" id="1_phbal"]
 [ext_resource type="AudioStream" uid="uid://daxhqk0xxe830" path="res://UI/sound1.wav" id="2_1b2cg"]
+[ext_resource type="Texture2D" uid="uid://vhdxbr5u3cqw" path="res://UI/volume.png" id="3_q3me1"]
 
 [sub_resource type="LabelSettings" id="LabelSettings_endsy"]
 line_spacing = -75.67
@@ -89,7 +90,24 @@ text = "Exit
 stream = ExtResource("2_1b2cg")
 autoplay = true
 
+[node name="volume" type="TextureButton" parent="."]
+anchors_preset = 2
+anchor_top = 1.0
+anchor_bottom = 1.0
+offset_left = 29.0
+offset_top = -101.0
+offset_right = 157.0
+offset_bottom = 27.0
+grow_vertical = 0
+scale = Vector2(0.61, 0.61)
+texture_normal = ExtResource("3_q3me1")
+texture_pressed = ExtResource("3_q3me1")
+texture_hover = ExtResource("3_q3me1")
+texture_disabled = ExtResource("3_q3me1")
+texture_focused = ExtResource("3_q3me1")
+
 [connection signal="pressed" from="UI/Start_Button" to="." method="_on_start_button_pressed"]
 [connection signal="pressed" from="UI/Levels_Button2" to="." method="_on_levels_button_2_pressed"]
 [connection signal="pressed" from="UI/Credits_Button3" to="." method="_on_credits_button_3_pressed"]
 [connection signal="pressed" from="UI/Exit_Button4" to="." method="_on_exit_button_4_pressed"]
+[connection signal="pressed" from="volume" to="." method="_on_volume_pressed"]

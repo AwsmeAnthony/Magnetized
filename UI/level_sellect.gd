@@ -34,6 +34,7 @@ var index : int = 0
 	#
 
 func _process(delta: float) -> void:
+	Pause.visible = false
 	label.text = str("Levels ", index+1, " - ", index+3)
 	ss_rect_1.texture = load(files[index])
 	ss_rect_2.texture = load(files[index+1])

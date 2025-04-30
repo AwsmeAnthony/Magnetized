@@ -16,3 +16,7 @@ func _on_button_pressed() -> void:
 
 func _on_exit_pressed() -> void:
 	get_tree().change_scene_to_file("res://UI/main_menu.tscn")
+
+
+func _on_retry_pressed() -> void:
+	get_tree().reload_current_scene()

@@ -1,0 +1,89 @@
+[gd_scene load_steps=5 format=3 uid="uid://brg46mf4arf3h"]
+
+[ext_resource type="Script" path="res://UI/pause.gd" id="1_0fpvi"]
+
+[sub_resource type="Gradient" id="Gradient_xaivj"]
+offsets = PackedFloat32Array(1)
+colors = PackedColorArray(0, 0, 0, 0.498039)
+
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_rwdgt"]
+gradient = SubResource("Gradient_xaivj")
+width = 489
+height = 639
+
+[sub_resource type="LabelSettings" id="LabelSettings_7drpj"]
+font_size = 126
+outline_size = 40
+outline_color = Color(0, 0, 0, 1)
+
+[node name="pause" type="CanvasLayer"]
+visible = false
+script = ExtResource("1_0fpvi")
+
+[node name="TextureRect" type="TextureRect" parent="."]
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -32.0
+offset_top = -32.0
+offset_right = 32.0
+offset_bottom = 32.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = SubResource("GradientTexture2D_rwdgt")
+metadata/_edit_use_anchors_ = true
+
+[node name="Label" type="Label" parent="TextureRect"]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.661554
+anchor_top = 0.250391
+anchor_right = 0.661554
+anchor_bottom = 0.250391
+offset_left = -555.0
+offset_top = -354.5
+offset_right = 555.0
+offset_bottom = 354.5
+grow_horizontal = 2
+grow_vertical = 2
+scale = Vector2(0.85, 0.85)
+text = "Pause"
+label_settings = SubResource("LabelSettings_7drpj")
+horizontal_alignment = 1
+vertical_alignment = 1
+metadata/_edit_use_anchors_ = true
+
+[node name="Button" type="Button" parent="."]
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -245.0
+offset_top = -132.0
+offset_right = 247.0
+offset_bottom = 70.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_font_sizes/font_size = 51
+text = "Retry"
+
+[node name="Button2" type="Button" parent="."]
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -243.0
+offset_top = 79.0
+offset_right = 249.0
+offset_bottom = 307.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_font_sizes/font_size = 51
+text = "Exit"
+
+[connection signal="pressed" from="Button" to="." method="_on_button_pressed"]
+[connection signal="pressed" from="Button2" to="." method="_on_button_2_pressed"]
