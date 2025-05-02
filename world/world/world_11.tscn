@@ -1,8 +1,9 @@
-[gd_scene load_steps=13 format=3 uid="uid://dxvqhd7bnl6if"]
+[gd_scene load_steps=14 format=3 uid="uid://dxvqhd7bnl6if"]
 
 [ext_resource type="PackedScene" uid="uid://cwn1iqau3owf4" path="res://world/objects/diebox.tscn" id="1_d3107"]
 [ext_resource type="PackedScene" uid="uid://b43ckbda8crkd" path="res://world/world/blockout.tscn" id="1_m67qx"]
 [ext_resource type="PackedScene" uid="uid://bkhtv6xoy8wk3" path="res://world/objects/fan.tscn" id="2_axbfk"]
+[ext_resource type="PackedScene" uid="uid://ucp556fcmfk5" path="res://world/world/world_12.tscn" id="2_n1104"]
 [ext_resource type="PackedScene" uid="uid://qss2uwoa25ld" path="res://ent/player/player.tscn" id="2_p7vfx"]
 [ext_resource type="Script" path="res://addons/phantom_camera/scripts/phantom_camera_host/phantom_camera_host.gd" id="3_vi6fm"]
 [ext_resource type="Script" path="res://addons/phantom_camera/scripts/phantom_camera/phantom_camera_2d.gd" id="4_7eldn"]
@@ -23,6 +24,7 @@ ease = 2
 [node name="exit" parent="." instance=ExtResource("11_dyajh")]
 position = Vector2(1040, 607)
 rotation = -3.14159
+next_level = ExtResource("2_n1104")
 
 [node name="diebox" parent="." instance=ExtResource("1_d3107")]
 position = Vector2(467, 679)

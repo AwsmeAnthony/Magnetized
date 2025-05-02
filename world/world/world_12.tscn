@@ -1,0 +1,134 @@
+[gd_scene load_steps=13 format=3 uid="uid://ucp556fcmfk5"]
+
+[ext_resource type="PackedScene" uid="uid://qss2uwoa25ld" path="res://ent/player/player.tscn" id="1_vkcyl"]
+[ext_resource type="PackedScene" uid="uid://cwn1iqau3owf4" path="res://world/objects/diebox.tscn" id="1_w127t"]
+[ext_resource type="Script" path="res://addons/phantom_camera/scripts/phantom_camera_host/phantom_camera_host.gd" id="2_5oct3"]
+[ext_resource type="PackedScene" uid="uid://bi0gvxamp6cq5" path="res://world/exit/exir.tscn" id="3_dm422"]
+[ext_resource type="PackedScene" uid="uid://b21f1yaylbhn7" path="res://world/objects/box.tscn" id="3_gx37m"]
+[ext_resource type="Script" path="res://addons/phantom_camera/scripts/phantom_camera/phantom_camera_2d.gd" id="3_qftuv"]
+[ext_resource type="Script" path="res://addons/phantom_camera/scripts/resources/tween_resource.gd" id="4_inaio"]
+[ext_resource type="PackedScene" uid="uid://b43ckbda8crkd" path="res://world/world/blockout.tscn" id="5_5krtc"]
+[ext_resource type="PackedScene" uid="uid://cj5y6w0no0ty2" path="res://world/objects/button.tscn" id="7_tild4"]
+[ext_resource type="PackedScene" uid="uid://cotwmkn4deb17" path="res://world/objects/door.tscn" id="9_qvbp5"]
+[ext_resource type="PackedScene" uid="uid://bkhtv6xoy8wk3" path="res://world/objects/fan.tscn" id="10_q7wef"]
+
+[sub_resource type="Resource" id="Resource_mgoqd"]
+script = ExtResource("4_inaio")
+duration = 1.0
+transition = 0
+ease = 2
+
+[node name="world_12" type="Node2D"]
+
+[node name="exit" parent="." instance=ExtResource("3_dm422")]
+position = Vector2(273, 315)
+
+[node name="door3" parent="." node_paths=PackedStringArray("button") instance=ExtResource("9_qvbp5")]
+position = Vector2(466, 324)
+rotation = 1.5708
+button = NodePath("../button2")
+
+[node name="door4" parent="." node_paths=PackedStringArray("button") instance=ExtResource("9_qvbp5")]
+position = Vector2(466, 282)
+rotation = 1.5708
+button = NodePath("../button2")
+
+[node name="fan" parent="." instance=ExtResource("10_q7wef")]
+position = Vector2(533, 543)
+
+[node name="fan2" parent="." instance=ExtResource("10_q7wef")]
+position = Vector2(501, 679)
+
+[node name="fan4" parent="." instance=ExtResource("10_q7wef")]
+position = Vector2(395, 163)
+rotation = 3.14159
+offset = Vector2(0, 400)
+
+[node name="fan5" parent="." instance=ExtResource("10_q7wef")]
+position = Vector2(330, 377)
+offset = Vector2(0, -400)
+
+[node name="fan3" parent="." instance=ExtResource("10_q7wef")]
+position = Vector2(580, 584)
+
+[node name="door" parent="." node_paths=PackedStringArray("button") instance=ExtResource("9_qvbp5")]
+position = Vector2(466, 476)
+rotation = 1.5708
+button = NodePath("../button")
+
+[node name="door2" parent="." node_paths=PackedStringArray("button") instance=ExtResource("9_qvbp5")]
+position = Vector2(466, 424)
+rotation = 1.5708
+button = NodePath("../button")
+
+[node name="button" parent="." instance=ExtResource("7_tild4")]
+position = Vector2(415, 536)
+
+[node name="diebox" parent="." instance=ExtResource("1_w127t")]
+position = Vector2(340, 569)
+
+[node name="diebox8" parent="." instance=ExtResource("1_w127t")]
+position = Vector2(395, 385)
+
+[node name="diebox9" parent="." instance=ExtResource("1_w127t")]
+position = Vector2(340, 242)
+
+[node name="diebox6" parent="." instance=ExtResource("1_w127t")]
+position = Vector2(576, 242)
+
+[node name="diebox7" parent="." instance=ExtResource("1_w127t")]
+position = Vector2(520, 242)
+
+[node name="diebox2" parent="." instance=ExtResource("1_w127t")]
+position = Vector2(505, 561)
+
+[node name="diebox3" parent="." instance=ExtResource("1_w127t")]
+position = Vector2(558, 561)
+
+[node name="diebox4" parent="." instance=ExtResource("1_w127t")]
+position = Vector2(612, 561)
+
+[node name="diebox5" parent="." instance=ExtResource("1_w127t")]
+position = Vector2(666, 561)
+
+[node name="box" parent="." instance=ExtResource("3_gx37m")]
+position = Vector2(303, 483)
+
+[node name="player" parent="." instance=ExtResource("1_vkcyl")]
+position = Vector2(388, 532)
+
+[node name="Camera2D" type="Camera2D" parent="."]
+physics_interpolation_mode = 1
+position = Vector2(388, 532)
+zoom = Vector2(4, 4)
+editor_draw_limits = true
+
+[node name="PhantomCameraHost" type="Node" parent="Camera2D"]
+process_priority = 300
+process_physics_priority = 300
+script = ExtResource("2_5oct3")
+
+[node name="PhantomCamera2D" type="Node2D" parent="." node_paths=PackedStringArray("follow_target")]
+position = Vector2(388, 532)
+script = ExtResource("3_qftuv")
+follow_target = NodePath("../player")
+tween_resource = SubResource("Resource_mgoqd")
+draw_limits = true
+
+[node name="Blockout" parent="." instance=ExtResource("5_5krtc")]
+color = Color(0, 0, 0, 1)
+polygon = PackedVector2Array(-406, -611, 2571, -648, 2528, 1657, -732, 1479, -406, -611, 276, 267, 276, 362, 484, 361, 485, 419, 276, 418, 276, 495, 315, 495, 315, 545, 362, 545, 361.689, 538, 426, 538, 426, 533, 439, 533, 451, 519.678, 451, 498, 480, 498, 480, 538, 687, 538, 687.104, 509.981, 601, 510, 601, 469, 626, 469, 626, 472, 651, 472, 651, 469, 686, 469, 686, 428.71, 604, 429, 604, 267, 276, 267)
+
+[node name="button2" parent="." instance=ExtResource("7_tild4")]
+position = Vector2(638, 470)
+
+[node name="box" parent="button2" instance=ExtResource("3_gx37m")]
+position = Vector2(32.4293, -11.2273)
+
+[node name="Polygon2D" type="Polygon2D" parent="."]
+show_behind_parent = true
+z_index = -2
+position = Vector2(34, 3)
+color = Color(0.114897, 0.114897, 0.114897, 1)
+invert_enabled = true
+polygon = PackedVector2Array(249, 311, 274, 281, 299, 281, 334, 289, 368, 275, 432, 273, 536, 274, 574, 300, 556, 318, 548, 368, 558, 403, 575, 424, 596, 448, 617, 436, 638, 452, 616, 466, 585, 460, 566, 477, 552, 514, 578, 515, 614, 513, 632, 513, 632, 526, 589, 534, 554, 527, 519, 524, 484, 531, 468, 527, 456, 511, 453, 485, 413, 479, 393, 507, 382, 521, 351, 526, 321, 527, 295, 526, 293, 517, 294, 489, 270, 468, 258, 469, 251, 446, 273, 433, 308, 435, 347, 436, 390, 428, 441, 423, 467, 421, 486, 407, 483, 389, 480, 373, 475, 348, 457, 330, 434, 325, 376, 332, 329, 340, 306, 342, 277, 346)

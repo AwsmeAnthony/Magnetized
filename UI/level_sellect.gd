@@ -8,8 +8,8 @@ extends CanvasLayer
 
 var dir = "res://UI/levelss/"
 var levels_dir = "res://world/world/"
-var files : Array = ["res://UI/levelss/Screenshot 2025-04-29 163844.png","res://UI/levelss/Screenshot 2025-04-29 163907.png",  "res://UI/levelss/Screenshot 2025-04-29 163944.png","res://UI/levelss/Screenshot 2025-04-29 163950.png", "res://UI/levelss/Screenshot 2025-04-29 164010.png",  "res://UI/levelss/Screenshot 2025-04-29 164028.png", "res://UI/levelss/Screenshot 2025-04-29 164048.png", "res://UI/levelss/Screenshot 2025-04-29 164102.png", "res://UI/levelss/Screenshot 2025-04-29 164131.png", "res://UI/levelss/Screenshot 2025-05-01 231345.png"]
-var level_files : Array = ["res://world/world/world.tscn", "res://world/world/world_1.tscn", "res://world/world/world_2.tscn", "res://world/world/world_4.tscn", "res://world/world/world_5.tscn", "res://world/world/world_6.tscn", "res://world/world/world_7.tscn", "res://world/world/world_8.tscn", "res://world/world/world_9.tscn", "res://world/world/world_10.tscn"]
+var files : Array = ["res://UI/levelss/Screenshot 2025-04-29 163844.png","res://UI/levelss/Screenshot 2025-04-29 163907.png",  "res://UI/levelss/Screenshot 2025-04-29 163944.png","res://UI/levelss/Screenshot 2025-04-29 163950.png", "res://UI/levelss/Screenshot 2025-04-29 164010.png",  "res://UI/levelss/Screenshot 2025-04-29 164028.png", "res://UI/levelss/Screenshot 2025-04-29 164048.png", "res://UI/levelss/Screenshot 2025-04-29 164102.png", "res://UI/levelss/Screenshot 2025-04-29 164131.png", "res://UI/levelss/Screenshot 2025-05-01 231345.png", "res://UI/levelss/Screenshot 2025-05-02 131713.png", "res://UI/levelss/Screenshot 2025-05-02 160114.png"]
+var level_files : Array = ["res://world/world/world.tscn", "res://world/world/world_1.tscn", "res://world/world/world_2.tscn", "res://world/world/world_4.tscn", "res://world/world/world_5.tscn", "res://world/world/world_6.tscn", "res://world/world/world_7.tscn", "res://world/world/world_8.tscn", "res://world/world/world_9.tscn", "res://world/world/world_10.tscn", "res://world/world/world_11.tscn", "res://world/world/world_12.tscn"]
 var index : int = 0
 
 #func _ready() -> void:
