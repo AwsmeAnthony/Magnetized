@@ -1,0 +1,43 @@
+[gd_scene load_steps=3 format=3 uid="uid://bkhtv6xoy8wk3"]
+
+[ext_resource type="Script" path="res://world/objects/fan.gd" id="1_adpy7"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_76ax7"]
+size = Vector2(20, 213)
+
+[node name="fan" type="Area2D"]
+script = ExtResource("1_adpy7")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(0, -105.5)
+shape = SubResource("RectangleShape2D_76ax7")
+
+[node name="fly partics" type="CPUParticles2D" parent="CollisionShape2D"]
+z_index = -1
+position = Vector2(0, 103.5)
+rotation = 1.5708
+amount = 64
+lifetime = 1.5
+local_coords = true
+emission_shape = 3
+emission_rect_extents = Vector2(1, 15.14)
+gravity = Vector2(-268.41, 0)
+radial_accel_min = -100.0
+radial_accel_max = -100.0
+angle_min = -720.0
+angle_max = 720.0
+scale_amount_min = 0.0
+scale_amount_max = 5.0
+color = Color(1, 1, 1, 0.145098)
+
+[node name="Polygon2D" type="Polygon2D" parent="."]
+color = Color(0.391604, 0.70542, 0.767955, 1)
+polygon = PackedVector2Array(-10, -5, -10, 2, 10, 2, 10, -5)
+
+[node name="StaticBody2D" type="StaticBody2D" parent="."]
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="StaticBody2D"]
+polygon = PackedVector2Array(-10, -5, 10, -5, 10, 2, -10, 2)
+
+[connection signal="body_entered" from="." to="." method="_on_body_entered"]
+[connection signal="body_exited" from="." to="." method="_on_body_exited"]

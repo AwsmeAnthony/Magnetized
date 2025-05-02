@@ -9,6 +9,7 @@ var player_vel : Vector2
 var grav : Vector2
 var player_in : bool = false
 var dying : bool = false
+var offset : Vector2
 
 func _physics_process(delta: float) -> void:
 	if dying:
@@ -28,7 +29,7 @@ func _physics_process(delta: float) -> void:
 			#var x_tween : Tween = create_tween()
 			#x_tween.tween_property(self,"player_vel",Vector2(0,0),0.1)
 	
-	velocity = (player_vel * slide) + grav
+	velocity = (player_vel * slide) + grav + offset
 	move_and_slide()
 
 func _die():

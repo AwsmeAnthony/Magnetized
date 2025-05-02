@@ -28,15 +28,19 @@ func _physics_process(delta: float) -> void:
 	_move()
 	_align_rotation()
 	
-
+	#if offset != Vector2.ZERO:
+		#velocity = offset
+		#return
+	#
 	if not neg.is_colliding() and not pos.is_colliding():
-		if not is_on_wall_cast.is_colliding():
+		if not is_on_wall_cast.is_colliding() and not offset:
 			velocity.y += 5
 			if velocity.y > 200:
 				velocity.y = 200
 			velocity += offset
 			fly_partics.visible = false
 			return
+			
 		velocity = (Vector2.RIGHT.rotated(neck.rotation) * 300) + offset
 		fly_partics.visible = true
 	if neg.is_colliding() and pos.is_colliding():

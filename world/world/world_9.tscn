@@ -1,7 +1,8 @@
-[gd_scene load_steps=12 format=3 uid="uid://br8crly5rhxo"]
+[gd_scene load_steps=13 format=3 uid="uid://br8crly5rhxo"]
 
 [ext_resource type="PackedScene" uid="uid://qss2uwoa25ld" path="res://ent/player/player.tscn" id="1_wyi86"]
 [ext_resource type="Script" path="res://addons/phantom_camera/scripts/phantom_camera_host/phantom_camera_host.gd" id="2_4tm61"]
+[ext_resource type="PackedScene" uid="uid://43a3hrbbkjmc" path="res://world/world/world_10.tscn" id="2_pscx7"]
 [ext_resource type="Script" path="res://addons/phantom_camera/scripts/phantom_camera/phantom_camera_2d.gd" id="3_f1ghd"]
 [ext_resource type="PackedScene" uid="uid://cotwmkn4deb17" path="res://world/objects/door.tscn" id="3_upc2r"]
 [ext_resource type="Script" path="res://addons/phantom_camera/scripts/resources/tween_resource.gd" id="4_e01p5"]
@@ -21,6 +22,7 @@ ease = 2
 
 [node name="exit" parent="." instance=ExtResource("6_vuffu")]
 position = Vector2(-152, 250)
+next_level = ExtResource("2_pscx7")
 
 [node name="diebox" parent="." instance=ExtResource("8_bo4j6")]
 position = Vector2(-123, 42)
